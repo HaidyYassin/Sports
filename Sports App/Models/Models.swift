@@ -35,5 +35,4 @@ class Result: Codable {
         case countryLogo = "country_logo"
     }
 
-    
 }

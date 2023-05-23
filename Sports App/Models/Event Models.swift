@@ -8,43 +8,43 @@
 import Foundation
 
 class EventResult: Codable {
-    let success: Int
-    let result: [Rresult]
+    var success: Int?
+    var result: [UpcomingEvent]?
 
-    init(success: Int, result: [Rresult]) {
+    init(success: Int, result: [UpcomingEvent]) {
         self.success = success
         self.result = result
     }
 }
 
-class Rresult: Codable {
-    let eventKey: Int
-    let eventDate: String
-    let eventTime: EventTime
-    let eventHomeTeam: String
-    let homeTeamKey: Int
-    let eventAwayTeam: String
-    let awayTeamKey: Int
-    let eventHalftimeResult, eventFinalResult, eventFtResult, eventPenaltyResult: String
-    let eventStatus: EventStatus
-    let countryName: CountryName
-    let leagueName: String
-    let leagueKey: Int
-    let leagueRound: String
-    let leagueSeason: LeagueSeason
-    let eventLive, eventStadium, eventReferee: String
-    let homeTeamLogo, awayTeamLogo: String
-    let eventCountryKey: Int
-    let leagueLogo, countryLogo: String
-    let eventHomeFormation, eventAwayFormation: String
-    let fkStageKey: Int
-    let stageName: String
-    let leagueGroup: JSONNull?
-    let goalscorers: [Goalscorer]
-    let substitutes: [Substitute]
-    let cards: [CardElement]
-    let lineups: Lineups
-    let statistics: [Statistic]
+class UpcomingEvent: Codable {
+    var eventKey: Int?
+    var eventDate: String?
+    var eventTime: String?
+    var eventHomeTeam: String?
+    var homeTeamKey: Int?
+    var eventAwayTeam: String?
+    var awayTeamKey: Int?
+    var eventHalftimeResult, eventFinalResult, eventFtResult, eventPenaltyResult: String?
+    var eventStatus: EventStatus?
+    var countryName: String?
+    var leagueName: String?
+    var leagueKey: Int?
+    var leagueRound: String?
+    var leagueSeason: LeagueSeason?
+    var eventLive, eventStadium, eventReferee: String?
+    var homeTeamLogo, awayTeamLogo: String?
+    var eventCountryKey: Int?
+    var leagueLogo, countryLogo: String?
+    var eventHomeFormation, eventAwayFormation: String?
+    var fkStageKey: Int?
+    var stageName: String?
+    //var leagueGroup: JSONNull?
+    //var goalscorers: [Goalscorer]?
+    //var substitutes: [Substitute]?
+    //var cards: [CardElement]?
+    //var lineups: Lineups?
+    //var statistics: [Statistic]?
 
     enum CodingKeys: String, CodingKey {
         case eventKey = "event_key"
@@ -76,8 +76,8 @@ class Rresult: Codable {
         case eventAwayFormation = "event_away_formation"
         case fkStageKey = "fk_stage_key"
         case stageName = "stage_name"
-        case leagueGroup = "league_group"
-        case goalscorers, substitutes, cards, lineups, statistics
+       // case leagueGroup = "league_group"
+       // case goalscorers, substitutes, cards, lineups, statistics
     }
 
 }
@@ -162,24 +162,21 @@ enum LeagueSeason: String, Codable {
 
 // MARK: - Lineups
 class Lineups: Codable {
-    let homeTeam, awayTeam: Team
+    var homeTeam, awayTeam: Team?
 
     enum CodingKeys: String, CodingKey {
         case homeTeam = "home_team"
         case awayTeam = "away_team"
     }
 
-    init(homeTeam: Team, awayTeam: Team) {
-        self.homeTeam = homeTeam
-        self.awayTeam = awayTeam
-    }
+    
 }
 
 // MARK: - Team
 class Team: Codable {
-    let startingLineups, substitutes: [StartingLineup]
-    let coaches: [Coach]
-    let missingPlayers: [JSONAny]
+    var startingLineups, substitutes: [StartingLineup]?
+    var coaches: [Coach]?
+    var missingPlayers: [JSONAny]?
 
     enum CodingKeys: String, CodingKey {
         case startingLineups = "starting_lineups"
@@ -190,8 +187,8 @@ class Team: Codable {
 
 // MARK: - Coach
 class Coach: Codable {
-    let coache: String
-    let coacheCountry: JSONNull?
+    var coache: String?
+    var coacheCountry: JSONNull?
 
     enum CodingKeys: String, CodingKey {
         case coache
@@ -202,11 +199,11 @@ class Coach: Codable {
 
 // MARK: - StartingLineup
 class StartingLineup: Codable {
-    let player: String
-    let playerNumber, playerPosition: Int
-    let playerCountry: JSONNull?
-    let playerKey: Int
-    let infoTime: String
+    var player: String?
+    var playerNumber, playerPosition: Int?
+    var playerCountry: JSONNull?
+    var playerKey: Int?
+    var infoTime: String?
 
     enum CodingKeys: String, CodingKey {
         case player
@@ -221,19 +218,19 @@ class StartingLineup: Codable {
 
 // MARK: - Statistic
 class Statistic: Codable {
-    let type, home, away: String
+    var type, home, away: String?
 
 }
 
 // MARK: - Substitute
 class Substitute: Codable {
-    let time: String
-    let homeScorer: AwayScorerUnion
-    let homeAssist: JSONNull?
-    let score: Score
-    let awayScorer: AwayScorerUnion
-    let awayAssist, info: JSONNull?
-    let infoTime: InfoTime
+    var time: String?
+    var homeScorer: AwayScorerUnion?
+    var homeAssist: JSONNull?
+    var score: Score?
+    var awayScorer: AwayScorerUnion?
+    var awayAssist, info: JSONNull?
+    var infoTime: InfoTime?
 
     enum CodingKeys: String, CodingKey {
         case time
@@ -278,8 +275,8 @@ enum AwayScorerUnion: Codable {
 
 // MARK: - AwayScorerClass
 class AwayScorerClass: Codable {
-    let scorerIn, out: String
-    let inID, outID: Int
+    var scorerIn, out: String?
+    var inID, outID: Int?
 
     enum CodingKeys: String, CodingKey {
         case scorerIn = "in"
