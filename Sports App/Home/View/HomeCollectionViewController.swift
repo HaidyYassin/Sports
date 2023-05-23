@@ -7,7 +7,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -16,8 +16,6 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-
     }
 
    
@@ -37,7 +35,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     
         cell.sportImg.image = UIImage(named: imgsList[indexPath.row] + ".jpeg")
         cell.sportName.text = imgsList[indexPath.row]
-    
+        cell.layer.cornerRadius = 20
         return cell
     }
     

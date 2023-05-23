@@ -146,6 +146,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="eEn-ef-OWa" kind="presentation" identifier="goToDetails" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8jC-Hm-hh1">
+                                        <segue key="commit" inheritsFrom="parent" id="2wI-py-Lpe"/>
+                                        <segue key="preview" inheritsFrom="commit" id="pGl-m0-JUW"/>
+                                    </segue>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -157,6 +163,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULn-fE-7AT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2773.2824427480914" y="-593.66197183098598"/>
+        </scene>
+        <!--Details Collection-->
+        <scene sceneID="hZz-tO-2yc">
+            <objects>
+                <collectionViewController id="eEn-ef-OWa" customClass="DetailsCollection" customModule="Sports_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="9IU-dk-i7m">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GQQ-dR-cwS">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bvh-Fy-pdz">
+                                <rect key="frame" x="0.0" y="50" width="127.99999999999997" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="o7a-Zp-7ef">
+                                    <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="details" id="d97-1S-5Qw" customClass="DetailsHeader" customModule="Sports_App" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2I-02-jM9">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem title="Title" id="UeB-ea-9vV">
+                                            <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="gGX-a9-YJ2"/>
+                                            <barButtonItem key="rightBarButtonItem" image="suit.heart" catalog="system" id="qvJ-vl-wdC"/>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
+                            </subviews>
+                            <connections>
+                                <outlet property="navItem" destination="UeB-ea-9vV" id="2Wb-82-nKf"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="eEn-ef-OWa" id="LHx-Xx-hEi"/>
+                            <outlet property="delegate" destination="eEn-ef-OWa" id="jbX-Xx-780"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ge0-z2-vOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3513.740458015267" y="-592.25352112676057"/>
         </scene>
         <!--Fav Table View-->
         <scene sceneID="Qgn-i4-jra">
@@ -235,10 +296,15 @@
             <point key="canvasLocation" x="900" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8jC-Hm-hh1"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="sportscourt" catalog="system" width="128" height="83"/>
+        <image name="suit.heart" catalog="system" width="128" height="107"/>
         <image name="wave-haikei-3" width="333" height="500"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

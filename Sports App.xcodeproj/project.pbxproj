@@ -10,6 +10,11 @@
 		040DE3312A188C220076C94F /* splashcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DE3302A188C220076C94F /* splashcontroller.swift */; };
 		041675F82A197BCB005EC636 /* FavDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041675F72A197BCB005EC636 /* FavDB.swift */; };
 		041675FA2A19803B005EC636 /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041675F92A19803B005EC636 /* NetworkServices.swift */; };
+		043D796F2A1CF52200E6AD88 /* UtilityFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D796E2A1CF52200E6AD88 /* UtilityFuncs.swift */; };
+		043D79742A1D105300E6AD88 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D79732A1D105300E6AD88 /* DetailsViewModel.swift */; };
+		044AE13B2A1C982A002DAAF7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AE13A2A1C982A002DAAF7 /* URLs.swift */; };
+		044CEEFD2A1BE9EE0090FAAE /* DetailsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */; };
+		044CEEFF2A1BF39B0090FAAE /* DetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */; };
 		04AB189B2A1A49940083ECC9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB189A2A1A49940083ECC9 /* Repository.swift */; };
 		04AB189D2A1A4E270083ECC9 /* LeaguesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB189C2A1A4E270083ECC9 /* LeaguesViewModel.swift */; };
 		04D1E9172A1883A100064489 /* splashlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 04D1E9162A1883A100064489 /* splashlottie.json */; };
@@ -59,6 +64,11 @@
 		040DE3302A188C220076C94F /* splashcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashcontroller.swift; sourceTree = "<group>"; };
 		041675F72A197BCB005EC636 /* FavDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavDB.swift; sourceTree = "<group>"; };
 		041675F92A19803B005EC636 /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		043D796E2A1CF52200E6AD88 /* UtilityFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFuncs.swift; sourceTree = "<group>"; };
+		043D79732A1D105300E6AD88 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		044AE13A2A1C982A002DAAF7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollection.swift; sourceTree = "<group>"; };
+		044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeader.swift; sourceTree = "<group>"; };
 		04AB189A2A1A49940083ECC9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		04AB189C2A1A4E270083ECC9 /* LeaguesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewModel.swift; sourceTree = "<group>"; };
 		04D1E9162A1883A100064489 /* splashlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashlottie.json; sourceTree = "<group>"; };
@@ -125,6 +135,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044AE1392A1C9814002DAAF7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				044AE13A2A1C982A002DAAF7 /* URLs.swift */,
+				043D796E2A1CF52200E6AD88 /* UtilityFuncs.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		044CEEF92A1BE89B0090FAAE /* LeagueDetails */ = {
+			isa = PBXGroup;
+			children = (
+				044CEEFB2A1BE8C10090FAAE /* View */,
+				044CEEFA2A1BE8AB0090FAAE /* ViewModel */,
+			);
+			path = LeagueDetails;
+			sourceTree = "<group>";
+		};
+		044CEEFA2A1BE8AB0090FAAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				043D79732A1D105300E6AD88 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		044CEEFB2A1BE8C10090FAAE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */,
+				044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		047C9A532A197A5300231345 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +263,8 @@
 		04DD2BA82A17CE02008E16BD /* Sports App */ = {
 			isa = PBXGroup;
 			children = (
+				044AE1392A1C9814002DAAF7 /* Utility */,
+				044CEEF92A1BE89B0090FAAE /* LeagueDetails */,
 				047C9A532A197A5300231345 /* Services */,
 				04DBED1E2A19582A00DDD756 /* Leagues */,
 				04FD15D12A191E5E007A3F29 /* Fav */,
@@ -579,7 +626,11 @@
 				04FD15D92A1944A7007A3F29 /* SportsHeader.swift in Sources */,
 				04DD2BAA2A17CE02008E16BD /* AppDelegate.swift in Sources */,
 				04DBED222A1958F100DDD756 /* LeaguesTableView.swift in Sources */,
+				043D796F2A1CF52200E6AD88 /* UtilityFuncs.swift in Sources */,
+				044CEEFD2A1BE9EE0090FAAE /* DetailsCollection.swift in Sources */,
+				043D79742A1D105300E6AD88 /* DetailsViewModel.swift in Sources */,
 				041675F82A197BCB005EC636 /* FavDB.swift in Sources */,
+				044AE13B2A1C982A002DAAF7 /* URLs.swift in Sources */,
 				04DD2BB42A17CE02008E16BD /* Sports_App.xcdatamodeld in Sources */,
 				04FD15D02A1919F6007A3F29 /* HomeCollectionViewCell.swift in Sources */,
 				04AB189D2A1A4E270083ECC9 /* LeaguesViewModel.swift in Sources */,
@@ -587,6 +638,7 @@
 				04AB189B2A1A49940083ECC9 /* Repository.swift in Sources */,
 				04DBED252A19592500DDD756 /* LeaguesTableCell.swift in Sources */,
 				04DD2BAC2A17CE02008E16BD /* SceneDelegate.swift in Sources */,
+				044CEEFF2A1BF39B0090FAAE /* DetailsHeader.swift in Sources */,
 				041675FA2A19803B005EC636 /* NetworkServices.swift in Sources */,
 				04FD15C72A18FE0F007A3F29 /* Models.swift in Sources */,
 			);

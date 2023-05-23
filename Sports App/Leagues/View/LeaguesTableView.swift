@@ -8,16 +8,12 @@
 import UIKit
 import Kingfisher
 
-//b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8
+
 
 class LeaguesTableView: UITableViewController {
 
+    let indicator = UIActivityIndicatorView(style: .large)
    
-    private let footballUrl = "https://apiv2.allsportsapi.com/football/?met=Leagues&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
-    private let basketballUrl = "https://apiv2.allsportsapi.com/basketball/?met=Leagues&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
-    private let cricketUrl = "https://apiv2.allsportsapi.com/cricket/?met=Leagues&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
-    private let tennisUrl = "https://apiv2.allsportsapi.com/tennis/?met=Leagues&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
-    
     var LeagueType : String = ""
     var viewModel:LeaguesViewModel!
     var leaguesList : [Result]?
@@ -26,6 +22,9 @@ class LeaguesTableView: UITableViewController {
         super.viewDidLoad()
 
         leaguesList = []
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
         
         navigationItem.title = "Leagues"
     
@@ -38,13 +37,13 @@ class LeaguesTableView: UITableViewController {
         
         switch(LeagueType){
         case "Football":
-            viewModel.getLeaguesOverNetwork(url: footballUrl)
+            viewModel.getLeaguesOverNetwork(url: ApiUrls.footballLeague.rawValue)
         case "Basketball":
-            viewModel.getLeaguesOverNetwork(url: basketballUrl)
+            viewModel.getLeaguesOverNetwork(url: ApiUrls.basketballLeague.rawValue)
         case "Cricket":
-            viewModel.getLeaguesOverNetwork(url: cricketUrl)
+            viewModel.getLeaguesOverNetwork(url: ApiUrls.cricketLeague.rawValue)
         case "Tennis":
-            viewModel.getLeaguesOverNetwork(url: tennisUrl)
+            viewModel.getLeaguesOverNetwork(url: ApiUrls.tennisUrl.rawValue)
         default:
             break
         }
@@ -52,6 +51,7 @@ class LeaguesTableView: UITableViewController {
         viewModel.bindFootballResult = { [weak self] in
             self?.leaguesList = self!.viewModel.myresult
             DispatchQueue.main.async { [self] in
+                self?.indicator.stopAnimating()
                 self?.tableView.reloadData()
             }
            
@@ -93,12 +93,17 @@ class LeaguesTableView: UITableViewController {
         cell.leagueImg.clipsToBounds = true
         
 
+        print("id is\(leaguesList![indexPath.row].leagueKey)")
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "goToDetails", sender: nil)
     }
     
 
