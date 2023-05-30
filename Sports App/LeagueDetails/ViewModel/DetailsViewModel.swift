@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class LeaguesDetailsViewModel {
     
@@ -102,8 +103,8 @@ class LeaguesDetailsViewModel {
         })
     }
     
-    func getTeams(){
-        myNetwork.getTeams(url: ApiUrls.teamDetails.rawValue, compilitionHandler: { result in
+    func getTeams(leagueId:Int){
+        myNetwork.getTeams(url: ApiUrls.teams.rawValue + String(format: "%d", leagueId)+"&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8", compilitionHandler: { result in
             if let result = result {
                 self.teamsResult = result.result
                 print("getTeams \(result.result?.count)")
@@ -116,5 +117,9 @@ class LeaguesDetailsViewModel {
     
     func addToFav(league:LeagueResult, leaguetype:String){
         myDBMgr.insertLeague(League: league, type: leaguetype)
+    }
+    
+    func removeFromFav(league:NSManagedObject){
+        myDBMgr.deleteLeague(league: league)
     }
 }
