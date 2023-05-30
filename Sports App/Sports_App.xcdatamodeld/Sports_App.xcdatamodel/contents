@@ -7,5 +7,6 @@
         <attribute name="leagueKey" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="leagueLogo" optional="YES" attributeType="String"/>
         <attribute name="leagueName" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
 </model>

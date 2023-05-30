@@ -72,7 +72,7 @@ class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlo
     }
 
     @objc func addToFav(){
-        viewModel?.addToFav(league: leagueObj)
+        viewModel?.addToFav(league: leagueObj,leaguetype: LeagueType)
     }
     
     
