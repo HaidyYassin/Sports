@@ -22,7 +22,7 @@ class FavDBManager {
     public static let FavDBInstance = FavDBManager()
     
 
-     func insertLeague(League:LeagueResult){
+    func insertLeague(League:LeagueResult, type:String){
          let myLeague = NSManagedObject(entity: FavDBManager.entity!, insertInto: FavDBManager.managedContext)
          
          myLeague.setValue(League.leagueName, forKey: "leagueName")
@@ -31,6 +31,7 @@ class FavDBManager {
          myLeague.setValue(League.countryName, forKey: "countryName")
          myLeague.setValue(League.countryLogo, forKey: "countryLogo")
          myLeague.setValue(League.countryKey, forKey: "countryKey")
+         myLeague.setValue(type, forKey: "type")
          
        /*  myLeague.setValue(League.value(forKey: "leagueName"), forKey: "leagueName")
          myLeague.setValue(League.value(forKey: "leagueLogo"), forKey: "leagueLogo")

@@ -114,7 +114,7 @@ class LeaguesDetailsViewModel {
     }
     
     
-    func addToFav(league:LeagueResult){
-        myDBMgr.insertLeague(League: league)
+    func addToFav(league:LeagueResult, leaguetype:String){
+        myDBMgr.insertLeague(League: league, type: leaguetype)
     }
 }

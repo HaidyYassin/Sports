@@ -10,12 +10,16 @@ import CoreData
 
 class FavViewModel{
     
-    var myDBMgr: FavDBManager
+    private var myDBMgr: FavDBManager
     init(myDBMgr: FavDBManager) {
         self.myDBMgr = myDBMgr
     }
     
     func getAllFavLeagues() -> [NSManagedObject]{
         myDBMgr.getAllStoredLeagues()
+    }
+    
+    func deleteLeague(league:NSManagedObject){
+        myDBMgr.deleteLeague(league: league)
     }
 }
