@@ -18,6 +18,7 @@
 		044AE13B2A1C982A002DAAF7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AE13A2A1C982A002DAAF7 /* URLs.swift */; };
 		044CEEFD2A1BE9EE0090FAAE /* DetailsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */; };
 		044CEEFF2A1BF39B0090FAAE /* DetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */; };
+		044E57912A265B6900DD90B3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E57902A265B6900DD90B3 /* ViewModel.swift */; };
 		048718432A2634F6006456EE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048718422A2634F6006456EE /* ViewModel.swift */; };
 		04AB189B2A1A49940083ECC9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB189A2A1A49940083ECC9 /* Repository.swift */; };
 		04AB189D2A1A4E270083ECC9 /* LeaguesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB189C2A1A4E270083ECC9 /* LeaguesViewModel.swift */; };
@@ -76,6 +77,7 @@
 		044AE13A2A1C982A002DAAF7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollection.swift; sourceTree = "<group>"; };
 		044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeader.swift; sourceTree = "<group>"; };
+		044E57902A265B6900DD90B3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		048718422A2634F6006456EE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		04AB189A2A1A49940083ECC9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		04AB189C2A1A4E270083ECC9 /* LeaguesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		044E578D2A265AFE00DD90B3 /* TeamDetails */ = {
+			isa = PBXGroup;
+			children = (
+				044E578F2A265B2A00DD90B3 /* View */,
+				044E578E2A265B2000DD90B3 /* ViewModel */,
+			);
+			path = TeamDetails;
+			sourceTree = "<group>";
+		};
+		044E578E2A265B2000DD90B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				044E57902A265B6900DD90B3 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		044E578F2A265B2A00DD90B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		047C9A532A197A5300231345 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +308,7 @@
 		04DD2BA82A17CE02008E16BD /* Sports App */ = {
 			isa = PBXGroup;
 			children = (
+				044E578D2A265AFE00DD90B3 /* TeamDetails */,
 				044AE1392A1C9814002DAAF7 /* Utility */,
 				044CEEF92A1BE89B0090FAAE /* LeagueDetails */,
 				047C9A532A197A5300231345 /* Services */,
@@ -644,6 +671,7 @@
 				04DD2BAE2A17CE02008E16BD /* ViewController.swift in Sources */,
 				04FD15C92A190208007A3F29 /* Event Models.swift in Sources */,
 				04FD15D92A1944A7007A3F29 /* SportsHeader.swift in Sources */,
+				044E57912A265B6900DD90B3 /* ViewModel.swift in Sources */,
 				043D797B2A1D257400E6AD88 /* TeamCell.swift in Sources */,
 				04DD2BAA2A17CE02008E16BD /* AppDelegate.swift in Sources */,
 				043D79772A1D254E00E6AD88 /* UpcomingCell.swift in Sources */,

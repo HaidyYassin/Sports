@@ -24,7 +24,8 @@ enum ApiUrls : String{
     case creckitEvent = "https://apiv2.allsportsapi.com/cricket/?met=Fixtures"
     case tennisEvent = "https://apiv2.allsportsapi.com/tennis/?met=Fixtures"
     
-    case teamDetails = "https://apiv2.allsportsapi.com/football/?&met=Teams&leagueId=3&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+    case teams = "https://apiv2.allsportsapi.com/football/?&met=Teams&leagueId="
+    case teamDetails = "https://apiv2.allsportsapi.com/football/?&met=Teams&teamId="
 }
 
 

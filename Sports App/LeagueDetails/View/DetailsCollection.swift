@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import CoreData
 
 class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -17,6 +18,7 @@ class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlo
     var leagueKey : Int!
     var leagueName: String!
     var leagueObj : LeagueResult!
+    var leagueNSManagedObj : NSManagedObject!
    
     var viewModel:LeaguesDetailsViewModel?
     
@@ -41,7 +43,7 @@ class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView.setCollectionViewLayout(layout, animated: true)
         viewModel?.getUpcomingDetailsOverNetwork(legType: LeagueType, legkey: leagueKey)
         viewModel?.getLatestDetailsOverNetwork(legType: LeagueType, legkey: leagueKey)
-        viewModel?.getTeams()
+        viewModel?.getTeams(leagueId: leagueKey)
         
         viewModel?.bindUpcomingEventResult = { [weak self] in
             self?.upcomingEventsList = self!.viewModel?.upcomingResult ?? []
@@ -72,7 +74,16 @@ class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlo
     }
 
     @objc func addToFav(){
-        viewModel?.addToFav(league: leagueObj,leaguetype: LeagueType)
+        if(navigationItem.rightBarButtonItem?.image == UIImage(systemName: "heart.fill")){
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+            //viewModel?.removeFromFav(league: leagueObj)
+        }else{
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+            viewModel?.addToFav(league: leagueObj,leaguetype: LeagueType)
+        }
+        
+        
+       
     }
     
     
@@ -220,6 +231,7 @@ class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlo
             cell.dateLabel.text = latestEventsList[indexPath.row].eventDate
             cell.timeLabel.text = latestEventsList[indexPath.row].eventTime
             
+            print("team key \(latestEventsList[0].homeTeamKey)")
             return cell
             
            
