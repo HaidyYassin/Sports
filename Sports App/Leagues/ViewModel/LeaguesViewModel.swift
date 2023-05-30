@@ -15,7 +15,7 @@ class LeaguesViewModel {
     }
     
     var bindFootballResult : (()->()) = {}
-    var myresult : [Result]!{
+    var myresult : [LeagueResult]!{
         didSet{
             bindFootballResult()
         }

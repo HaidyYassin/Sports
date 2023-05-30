@@ -10,25 +10,111 @@ import Foundation
 class LeaguesDetailsViewModel {
     
     var myNetwork:NetworkServicing
-    init(myNetwork: NetworkServicing) {
+    var myDBMgr : FavDBManager
+    
+    init(myNetwork: NetworkServicing, myDBMgr: FavDBManager) {
         self.myNetwork = myNetwork
+        self.myDBMgr = myDBMgr
     }
     
-    var bindEventResult : (()->()) = {}
-    var myresult : [UpcomingEvent]!{
+    var bindUpcomingEventResult : (()->()) = {}
+    var upcomingResult : [UpcomingEvent]!{
         didSet{
-            bindEventResult()
+            bindUpcomingEventResult()
         }
     }
     
-    func getDetailsOverNetwork(url: String) {
+    var bindLatestEventResult : (()->()) = {}
+    var latestResult : [UpcomingEvent]!{
+        didSet{
+            bindLatestEventResult()
+        }
+    }
+    
+    var bindTeamsResult : (()->()) = {}
+    var teamsResult : [TeamResult]!{
+        didSet{
+            bindTeamsResult()
+        }
+    }
+    
+    func getUpcomingDetailsOverNetwork(legType: String, legkey:Int) {
+        var upcomingUrl:String!
         
-        myNetwork.getLeagueDetails(url: url, compilitionHandler: { result in
+        switch(legType){
+        case "Football":
+             upcomingUrl = ApiUrls.footballEvent.rawValue + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().current + "&to=" + getCurrentDate().future + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        case "Basketball":
+             upcomingUrl = ApiUrls.basketballEvent.rawValue + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().current + "&to=" + getCurrentDate().future + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        case "Cricket":
+             upcomingUrl = ApiUrls.creckitEvent.rawValue + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().current + "&to=" + getCurrentDate().future + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        case "Tennis":
+             upcomingUrl = ApiUrls.tennisEvent.rawValue  + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().current + "&to=" + getCurrentDate().future + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        default:
+            break
+        }
+        
+        
+        myNetwork.getLeagueDetails(url: upcomingUrl, compilitionHandler: { result in
             if let result = result {
-                self.myresult = result.result
+                self.upcomingResult = result.result
+                print("getUpcomingDetailsOverNetwork \(result.result?.count)")
             }else {
                print("result is nil")
             }
         })
+    }
+    
+    func getLatestDetailsOverNetwork(legType: String, legkey:Int) {
+        
+        var latestUrl:String!
+        
+        switch(legType){
+        case "Football":
+            latestUrl = ApiUrls.footballEvent.rawValue + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().past + "&to=" + getCurrentDate().current + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        case "Basketball":
+            latestUrl = ApiUrls.basketballEvent.rawValue + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().past + "&to=" + getCurrentDate().current + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        case "Cricket":
+            latestUrl = ApiUrls.creckitEvent.rawValue + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().past + "&to=" + getCurrentDate().current + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        case "Tennis":
+            latestUrl = ApiUrls.tennisEvent.rawValue  + "&leagueId=" + String(format :"%d" ,legkey) + "&from=" + getCurrentDate().past + "&to=" + getCurrentDate().current + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+            
+        default:
+            break
+        }
+        
+        
+        
+        myNetwork.getLeagueDetails(url: latestUrl, compilitionHandler: { result in
+            if let result = result {
+                self.latestResult = result.result
+                print("getLatestDetailsOverNetwork \(result.result?.count)")
+            }else {
+               print("result is nil")
+            }
+        })
+    }
+    
+    func getTeams(){
+        myNetwork.getTeams(url: ApiUrls.teamDetails.rawValue, compilitionHandler: { result in
+            if let result = result {
+                self.teamsResult = result.result
+                print("getTeams \(result.result?.count)")
+            }else {
+               print("result is nil")
+            }
+        })
+    }
+    
+    
+    func addToFav(league:LeagueResult){
+        myDBMgr.insertLeague(League: league)
     }
 }

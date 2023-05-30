@@ -16,7 +16,10 @@ class LeaguesTableView: UITableViewController {
    
     var LeagueType : String = ""
     var viewModel:LeaguesViewModel!
-    var leaguesList : [Result]?
+    var leaguesList : [LeagueResult]?
+    var legId:Int!
+    var legName:String!
+    var currentObj : LeagueResult!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +84,6 @@ class LeaguesTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "leaguesCell", for: indexPath) as! LeaguesTableCell
 
-        // Configure the cell...
         cell.layer.cornerRadius = 190
         cell.leagueName.text = leaguesList![indexPath.row].leagueName
         
@@ -91,9 +93,7 @@ class LeaguesTableView: UITableViewController {
         
         cell.leagueImg.layer.cornerRadius = cell.leagueImg.frame.size.width / 2
         cell.leagueImg.clipsToBounds = true
-        
-
-        print("id is\(leaguesList![indexPath.row].leagueKey)")
+    
         return cell
     }
     
@@ -103,9 +103,21 @@ class LeaguesTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        legId = (leaguesList![indexPath.row].leagueKey)
+        legName = (leaguesList![indexPath.row].leagueName)
+        currentObj = (leaguesList![indexPath.row])
         self.performSegue(withIdentifier: "goToDetails", sender: nil)
     }
     
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetails" {
+            let controller = segue.destination as! DetailsCollection
+            controller.LeagueType = LeagueType
+            controller.leagueKey = legId
+            controller.leagueName = legName
+            controller.leagueObj = currentObj
+           }
+    }
 }

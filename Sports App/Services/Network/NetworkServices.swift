@@ -13,10 +13,12 @@ protocol NetworkServicing{
     func getLeaguesOverNetwork(url:String,compilitionHandler: @escaping (MyResult?) -> Void)
     
     func getLeagueDetails(url:String,compilitionHandler: @escaping (EventResult?) -> Void)
+    
+    func getTeams(url:String,compilitionHandler: @escaping (TeamResponse?) -> Void)
 }
 
 class NetworkService : NetworkServicing{
-    
+   
     func getLeaguesOverNetwork(url:String, compilitionHandler: @escaping (MyResult?) -> Void)
     {
     
@@ -43,7 +45,7 @@ class NetworkService : NetworkServicing{
             do{
                 if(response.result.isSuccess){
                    let result: EventResult = try JSONDecoder().decode(EventResult.self, from: response.data!)
-                    print("Event response size : \(result.result?.count)")
+                    print("Event response size : \(String(describing: result.result?.count))")
                    debugPrint(result)
                 compilitionHandler(result)
             }
@@ -55,5 +57,18 @@ class NetworkService : NetworkServicing{
     }
     
     
-
+    func getTeams(url: String, compilitionHandler: @escaping (TeamResponse?) -> Void) {
+        Alamofire.request(url, method: .get, parameters: nil).responseJSON{ response in
+            do{
+                if(response.result.isSuccess){
+                   let result: TeamResponse = try JSONDecoder().decode(TeamResponse.self, from: response.data!)
+                    print("teams size : \(result.result?.count)")
+                   debugPrint(result)
+                compilitionHandler(result)
+            }
+            }catch let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

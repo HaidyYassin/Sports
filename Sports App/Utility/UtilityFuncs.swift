@@ -11,7 +11,7 @@ import Foundation
 //https://apiv2.allsportsapi.com/football?met=Fixtures&leagueId=[leagueId]&from=[CurrentDate]&to=[CurrentDate + OneYear]&APIkey=[YourKey]
 
 
-func getCurrentDate() -> (current: String,future :String){
+func getCurrentDate() -> (current: String,future :String, past:String){
     
     let date = Date()
     let dateFormatter = DateFormatter()
@@ -26,6 +26,11 @@ func getCurrentDate() -> (current: String,future :String){
     let futureDate = dateFormatter.string(from: plusyear!)
     print(futureDate)
     
-   return(currentDate,futureDate)
+    dateComponent.year = -1
+    let minusyear =  Calendar.current.date(byAdding: dateComponent, to: date)
+    let lastDate = dateFormatter.string(from: minusyear!)
+    print(lastDate)
+    
+    return(currentDate,futureDate,lastDate)
     
 }
