@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsHeader: UICollectionReusableView {
     
-    @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var headerText: UILabel!
     
   
 }

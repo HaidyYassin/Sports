@@ -26,12 +26,12 @@ class UpcomingEvent: Codable {
     var eventAwayTeam: String?
     var awayTeamKey: Int?
     var eventHalftimeResult, eventFinalResult, eventFtResult, eventPenaltyResult: String?
-    var eventStatus: EventStatus?
+    var eventStatus: String?
     var countryName: String?
     var leagueName: String?
     var leagueKey: Int?
     var leagueRound: String?
-    var leagueSeason: LeagueSeason?
+    var leagueSeason: String?
     var eventLive, eventStadium, eventReferee: String?
     var homeTeamLogo, awayTeamLogo: String?
     var eventCountryKey: Int?
@@ -39,12 +39,7 @@ class UpcomingEvent: Codable {
     var eventHomeFormation, eventAwayFormation: String?
     var fkStageKey: Int?
     var stageName: String?
-    //var leagueGroup: JSONNull?
-    //var goalscorers: [Goalscorer]?
-    //var substitutes: [Substitute]?
-    //var cards: [CardElement]?
-    //var lineups: Lineups?
-    //var statistics: [Statistic]?
+    
 
     enum CodingKeys: String, CodingKey {
         case eventKey = "event_key"
@@ -76,8 +71,7 @@ class UpcomingEvent: Codable {
         case eventAwayFormation = "event_away_formation"
         case fkStageKey = "fk_stage_key"
         case stageName = "stage_name"
-       // case leagueGroup = "league_group"
-       // case goalscorers, substitutes, cards, lineups, statistics
+       
     }
 
 }

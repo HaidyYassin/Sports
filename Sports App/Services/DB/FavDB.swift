@@ -22,15 +22,22 @@ class FavDBManager {
     public static let FavDBInstance = FavDBManager()
     
 
-     func insertLeague(League:NSManagedObject){
+     func insertLeague(League:LeagueResult){
          let myLeague = NSManagedObject(entity: FavDBManager.entity!, insertInto: FavDBManager.managedContext)
          
-         myLeague.setValue(League.value(forKey: "leagueName"), forKey: "leagueName")
+         myLeague.setValue(League.leagueName, forKey: "leagueName")
+         myLeague.setValue(League.leagueLogo, forKey: "leagueLogo")
+         myLeague.setValue(League.leagueKey, forKey: "leagueKey")
+         myLeague.setValue(League.countryName, forKey: "countryName")
+         myLeague.setValue(League.countryLogo, forKey: "countryLogo")
+         myLeague.setValue(League.countryKey, forKey: "countryKey")
+         
+       /*  myLeague.setValue(League.value(forKey: "leagueName"), forKey: "leagueName")
          myLeague.setValue(League.value(forKey: "leagueLogo"), forKey: "leagueLogo")
          myLeague.setValue(League.value(forKey: "leagueKey"), forKey: "leagueKey")
          myLeague.setValue(League.value(forKey: "countryName"), forKey: "countryName")
          myLeague.setValue(League.value(forKey: "countryLogo"), forKey: "countryLogo")
-         myLeague.setValue(League.value(forKey: "countryKey"), forKey: "countryKey")
+         myLeague.setValue(League.value(forKey: "countryKey"), forKey: "countryKey")*/
        
     do{
         try FavDBManager.managedContext.save()

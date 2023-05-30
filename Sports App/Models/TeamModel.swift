@@ -1,44 +1,13 @@
 //
-//  Models.swift
+//  TeamModel.swift
 //  Sports App
 //
-//  Created by Mac on 20/05/2023.
+//  Created by Mac on 30/05/2023.
 //
 
 import Foundation
 
-
-class MyResult: Codable {
-    let success: Int
-    let result: [LeagueResult]
-
-    init(success: Int, result: [LeagueResult]) {
-        self.success = success
-        self.result = result
-    }
-}
-
-class LeagueResult: Codable {
-    var leagueKey: Int?
-    var leagueName: String?
-    var countryKey: Int?
-    var countryName: String?
-    var leagueLogo : String?
-    var countryLogo: String?
-
-    enum CodingKeys: String, CodingKey {
-        case leagueKey = "league_key"
-        case leagueName = "league_name"
-        case countryKey = "country_key"
-        case countryName = "country_name"
-        case leagueLogo = "league_logo"
-        case countryLogo = "country_logo"
-    }
-
-}
-
-
-
+// MARK: - TeamResponse
 class TeamResponse: Codable {
     var success: Int?
     var result: [TeamResult]?

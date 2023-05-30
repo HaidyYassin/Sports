@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RepositoryProtocol {
-    func getLeaguesOverNetwork(url:String) -> [Result]
+    func getLeaguesOverNetwork(url:String) -> [LeagueResult]
 }
 
 class Repository : RepositoryProtocol{
@@ -29,8 +29,8 @@ class Repository : RepositoryProtocol{
     }
 
     
-    func getLeaguesOverNetwork(url: String) -> [Result] {
-        var leaguesList: [Result] = []
+    func getLeaguesOverNetwork(url: String) -> [LeagueResult] {
+        var leaguesList: [LeagueResult] = []
         myNetwork?.getLeaguesOverNetwork(url: url, compilitionHandler: { result in
             if let result = result {
                 leaguesList = result.result
