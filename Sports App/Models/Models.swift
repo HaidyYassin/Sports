@@ -34,6 +34,15 @@ class LeagueResult: Codable {
         case leagueLogo = "league_logo"
         case countryLogo = "country_logo"
     }
+    
+    init(leagueKey: Int?, leagueName: String?, countryKey: Int?, countryName: String?, leagueLogo: String?, countryLogo: String?) {
+        self.leagueKey = leagueKey
+        self.leagueName = leagueName
+        self.countryKey = countryKey
+        self.countryName = countryName
+        self.leagueLogo = leagueLogo
+        self.countryLogo = countryLogo
+    }
 
 }
 

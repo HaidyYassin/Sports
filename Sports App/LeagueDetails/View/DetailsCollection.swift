@@ -276,5 +276,19 @@ class DetailsCollection: UICollectionViewController, UICollectionViewDelegateFlo
         return CGSize(width: 50, height: 50)
     }
 
-   
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let teamDetails = storyboard?.instantiateViewController(withIdentifier: "teamdetails") as! TeamDetailsViewController
+        
+        switch(indexPath.section){
+        case 2:
+            teamDetails.teamKey = teamsList[indexPath.row].teamKey
+            teamDetails.teamPhoto =  teamsList[indexPath.row].teamLogo ?? ""
+            teamDetails.teamTitle = teamsList[indexPath.row].teamName ?? ""
+            print("ghhhhhhhhhhhhhh")
+            navigationController?.pushViewController(teamDetails, animated: true)
+        default:
+            break
+        }
+    }
 }

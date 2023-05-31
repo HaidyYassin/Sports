@@ -70,7 +70,8 @@ class FavTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 
-            viewModel.deleteLeague(league: favList[indexPath.row])
+            //viewModel.deleteLeague(league: favList[indexPath.row])
+            self.present(viewModel.DeleteAlert(league: favList[indexPath.row]), animated: true, completion: nil)
             favList.remove(at: indexPath.row)
             tableView.reloadData()
             
@@ -84,11 +85,16 @@ class FavTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        legId = (favList[indexPath.row].value(forKey: "leagueKey")) as! Int
-        legName = (favList[indexPath.row].value(forKey: "leagueName")) as! String
-        //currentObj = (favList[indexPath.row])
-        LeagueType = (favList[indexPath.row].value(forKey: "type")) as! String
-        self.performSegue(withIdentifier: "navToDetails", sender: nil)
+        if(checkReachability()){
+            
+            legId = (favList[indexPath.row].value(forKey: "leagueKey")) as! Int
+            legName = (favList[indexPath.row].value(forKey: "leagueName")) as! String
+            //currentObj = (favList[indexPath.row])
+            LeagueType = (favList[indexPath.row].value(forKey: "type")) as! String
+            self.performSegue(withIdentifier: "navToDetails", sender: nil)
+        }else{
+            self.present(viewModel.showAlert(), animated: true, completion: nil)
+        }
     }
     
 

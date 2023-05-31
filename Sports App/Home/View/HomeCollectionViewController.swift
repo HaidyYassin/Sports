@@ -68,7 +68,21 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
             break
         }
         
-        self.navigationController?.pushViewController(legues, animated: true)
+//        if(checkReachability()){
+            self.navigationController?.pushViewController(legues, animated: true)
+//        }else{
+//            self.present(showAlert(), animated: true)
+//        }
     }
+    
+    func showAlert() -> UIAlertController{
+        let alert = UIAlertController(title: "Error!", message: "please check your connection and try again later", preferredStyle: UIAlertController.Style.alert)
+
+                alert.addAction(UIAlertAction(title: "OK",
+                                              style: UIAlertAction.Style.default,
+                                              handler:nil))
+          return alert
+    }
+    
 
 }
