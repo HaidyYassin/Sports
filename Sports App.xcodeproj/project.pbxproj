@@ -18,10 +18,14 @@
 		044AE13B2A1C982A002DAAF7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AE13A2A1C982A002DAAF7 /* URLs.swift */; };
 		044CEEFD2A1BE9EE0090FAAE /* DetailsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */; };
 		044CEEFF2A1BF39B0090FAAE /* DetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */; };
-		044E57912A265B6900DD90B3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E57902A265B6900DD90B3 /* ViewModel.swift */; };
+		044E57912A265B6900DD90B3 /* TeamDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044E57902A265B6900DD90B3 /* TeamDetailsViewModel.swift */; };
 		048718432A2634F6006456EE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048718422A2634F6006456EE /* ViewModel.swift */; };
+		04A75C9B2A267F560068453D /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A75C9A2A267F560068453D /* TeamDetailsViewController.swift */; };
 		04AB189B2A1A49940083ECC9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB189A2A1A49940083ECC9 /* Repository.swift */; };
 		04AB189D2A1A4E270083ECC9 /* LeaguesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AB189C2A1A4E270083ECC9 /* LeaguesViewModel.swift */; };
+		04AE73FC2A26B1D6000D7661 /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE73FB2A26B1D6000D7661 /* MockNetwork.swift */; };
+		04AE73FE2A26B1E5000D7661 /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AE73FD2A26B1E5000D7661 /* FakeData.swift */; };
+		04B299D72A26846C001F2B52 /* TeamMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B299D62A26846C001F2B52 /* TeamMemberCell.swift */; };
 		04D1E9172A1883A100064489 /* splashlottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 04D1E9162A1883A100064489 /* splashlottie.json */; };
 		04DBED222A1958F100DDD756 /* LeaguesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBED212A1958F100DDD756 /* LeaguesTableView.swift */; };
 		04DBED252A19592500DDD756 /* LeaguesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBED232A19592500DDD756 /* LeaguesTableCell.swift */; };
@@ -77,10 +81,14 @@
 		044AE13A2A1C982A002DAAF7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		044CEEFC2A1BE9EE0090FAAE /* DetailsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollection.swift; sourceTree = "<group>"; };
 		044CEEFE2A1BF39B0090FAAE /* DetailsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeader.swift; sourceTree = "<group>"; };
-		044E57902A265B6900DD90B3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		044E57902A265B6900DD90B3 /* TeamDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewModel.swift; sourceTree = "<group>"; };
 		048718422A2634F6006456EE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		04A75C9A2A267F560068453D /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 		04AB189A2A1A49940083ECC9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		04AB189C2A1A4E270083ECC9 /* LeaguesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewModel.swift; sourceTree = "<group>"; };
+		04AE73FB2A26B1D6000D7661 /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
+		04AE73FD2A26B1E5000D7661 /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
+		04B299D62A26846C001F2B52 /* TeamMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberCell.swift; sourceTree = "<group>"; };
 		04D1E9162A1883A100064489 /* splashlottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashlottie.json; sourceTree = "<group>"; };
 		04DBED212A1958F100DDD756 /* LeaguesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableView.swift; sourceTree = "<group>"; };
 		04DBED232A19592500DDD756 /* LeaguesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableCell.swift; sourceTree = "<group>"; };
@@ -203,7 +211,7 @@
 		044E578E2A265B2000DD90B3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				044E57902A265B6900DD90B3 /* ViewModel.swift */,
+				044E57902A265B6900DD90B3 /* TeamDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -211,6 +219,8 @@
 		044E578F2A265B2A00DD90B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04A75C9A2A267F560068453D /* TeamDetailsViewController.swift */,
+				04B299D62A26846C001F2B52 /* TeamMemberCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,6 +344,8 @@
 			isa = PBXGroup;
 			children = (
 				04DD2BC32A17CE04008E16BD /* Sports_AppTests.swift */,
+				04AE73FB2A26B1D6000D7661 /* MockNetwork.swift */,
+				04AE73FD2A26B1E5000D7661 /* FakeData.swift */,
 			);
 			path = "Sports AppTests";
 			sourceTree = "<group>";
@@ -666,12 +678,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FD15D72A191FCD007A3F29 /* FavTableViewCell.swift in Sources */,
+				04A75C9B2A267F560068453D /* TeamDetailsViewController.swift in Sources */,
 				040DE3312A188C220076C94F /* splashcontroller.swift in Sources */,
 				04FD15D52A191FBA007A3F29 /* FavTableView.swift in Sources */,
+				04B299D72A26846C001F2B52 /* TeamMemberCell.swift in Sources */,
 				04DD2BAE2A17CE02008E16BD /* ViewController.swift in Sources */,
 				04FD15C92A190208007A3F29 /* Event Models.swift in Sources */,
 				04FD15D92A1944A7007A3F29 /* SportsHeader.swift in Sources */,
-				044E57912A265B6900DD90B3 /* ViewModel.swift in Sources */,
+				044E57912A265B6900DD90B3 /* TeamDetailsViewModel.swift in Sources */,
 				043D797B2A1D257400E6AD88 /* TeamCell.swift in Sources */,
 				04DD2BAA2A17CE02008E16BD /* AppDelegate.swift in Sources */,
 				043D79772A1D254E00E6AD88 /* UpcomingCell.swift in Sources */,
@@ -700,6 +714,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AE73FE2A26B1E5000D7661 /* FakeData.swift in Sources */,
+				04AE73FC2A26B1D6000D7661 /* MockNetwork.swift in Sources */,
 				04DD2BC42A17CE04008E16BD /* Sports_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -877,6 +893,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -905,6 +922,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

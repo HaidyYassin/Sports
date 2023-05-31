@@ -15,10 +15,10 @@ class TeamDetailsViewModel{
     }
     
     
-    var bindUpTeamDetailsResult : (()->()) = {}
+    var bindTeamDetailsResult : (()->()) = {}
     var detailsResult : [TeamResult]!{
         didSet{
-            bindUpTeamDetailsResult()
+            bindTeamDetailsResult()
         }
     }
     

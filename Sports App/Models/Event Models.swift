@@ -73,6 +73,38 @@ class UpcomingEvent: Codable {
         case stageName = "stage_name"
        
     }
+    
+    init(eventKey: Int, eventDate: String, eventTime: String, eventHomeTeam: String, homeTeamKey: Int, eventAwayTeam: String, awayTeamKey: Int, eventHalftimeResult: String, eventFinalResult: String, eventFtResult: String, eventPenaltyResult: String, eventStatus: String, countryName: String, leagueName: String, leagueKey: Int, leagueRound: String, leagueSeason: String, eventLive: String, eventStadium: String, eventReferee: String, homeTeamLogo: String, awayTeamLogo: String, eventCountryKey: Int, leagueLogo: String, countryLogo: String, eventHomeFormation: String, eventAwayFormation: String, fkStageKey: Int, stageName: String) {
+        self.eventKey = eventKey
+        self.eventDate = eventDate
+        self.eventTime = eventTime
+        self.eventHomeTeam = eventHomeTeam
+        self.homeTeamKey = homeTeamKey
+        self.eventAwayTeam = eventAwayTeam
+        self.awayTeamKey = awayTeamKey
+        self.eventHalftimeResult = eventHalftimeResult
+        self.eventFinalResult = eventFinalResult
+        self.eventFtResult = eventFtResult
+        self.eventPenaltyResult = eventPenaltyResult
+        self.eventStatus = eventStatus
+        self.countryName = countryName
+        self.leagueName = leagueName
+        self.leagueKey = leagueKey
+        self.leagueRound = leagueRound
+        self.leagueSeason = leagueSeason
+        self.eventLive = eventLive
+        self.eventStadium = eventStadium
+        self.eventReferee = eventReferee
+        self.homeTeamLogo = homeTeamLogo
+        self.awayTeamLogo = awayTeamLogo
+        self.eventCountryKey = eventCountryKey
+        self.leagueLogo = leagueLogo
+        self.countryLogo = countryLogo
+        self.eventHomeFormation = eventHomeFormation
+        self.eventAwayFormation = eventAwayFormation
+        self.fkStageKey = fkStageKey
+        self.stageName = stageName
+    }
 
 }
 

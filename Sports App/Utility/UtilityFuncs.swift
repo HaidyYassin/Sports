@@ -6,10 +6,7 @@
 //
 
 import Foundation
-//https://apiv2.allsportsapi.com/football?met=Fixtures&leagueId=205&from=from=2022-01-18&to=2023-01-18&APIkey=[YourKey]
-
-//https://apiv2.allsportsapi.com/football?met=Fixtures&leagueId=[leagueId]&from=[CurrentDate]&to=[CurrentDate + OneYear]&APIkey=[YourKey]
-
+import Reachability
 
 func getCurrentDate() -> (current: String,future :String, past:String){
     
@@ -33,4 +30,37 @@ func getCurrentDate() -> (current: String,future :String, past:String){
     
     return(currentDate,futureDate,lastDate)
     
+}
+
+func checkReachability() -> Bool{
+  
+    var isReachabe = false
+    
+    do{
+        let reachability = try Reachability()
+        
+        reachability.whenReachable = { reachability in
+            if reachability.connection == .wifi {
+                print("Reachable via WiFi")
+                isReachabe = true
+            } else {
+                print("Reachable via Cellular")
+                isReachabe=true
+            }
+        }
+        reachability.whenUnreachable = { _ in
+            print("Not reachable")
+            isReachabe = false
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }catch {
+        print("Unable to start notifier")
+    }
+    
+    return isReachabe
 }

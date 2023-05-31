@@ -9,28 +9,108 @@ import XCTest
 @testable import Sports_App
 
 final class Sports_AppTests: XCTestCase {
+    
+    var networkMgr : NetworkServicing!
+    var teamDetailsViewModel : TeamDetailsViewModel!
+    var leaguesViewModel :LeaguesViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        networkMgr = NetworkService()
+        teamDetailsViewModel = TeamDetailsViewModel(myNetwork: NetworkService())
+        leaguesViewModel = LeaguesViewModel(myNetwork: NetworkService())
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        networkMgr = nil
+        teamDetailsViewModel = nil
+        leaguesViewModel = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+   
+    func testGetLeaguesOverNetwork(){
+        let myExpectation = expectation(description: "waiting for response")
+        networkMgr.getLeaguesOverNetwork(url: ApiUrls.footballLeague.rawValue) { result in
+            guard let result = result else {
+                XCTFail("result is nil")
+                return
+            }
+            XCTAssert(result.result.count > 0)
+            myExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testGetLeaguedetailsOverNetwork(){
+        
+        let url = ApiUrls.footballLeague.rawValue + "&leagueId=7&from=" + getCurrentDate().current + "&to=" + getCurrentDate().future + "&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+        
+        
+        let myExpectation = expectation(description: "waiting for response")
+        networkMgr.getLeagueDetails(url: url) { result in
+            guard let result = result else {
+                XCTFail("result is nil")
+                return
+            }
+            XCTAssert(result.result!.count > 0)
+            myExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10)
+    }
+    
+    
+    
+    func testGetTeams(){
+        
+        let url = ApiUrls.teams.rawValue + "80&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+        let myExpectation = expectation(description: "waiting for response")
+        networkMgr.getTeams(url: url) { team in
+            guard let team = team else {
+                XCTFail("result is nil")
+                return
+            }
+            XCTAssert(team.result!.count > 0)
+            XCTAssertNotNil(team.result?.count)
+            XCTAssertFalse(team.success != 1)
+            myExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10)
+    }
+    
+    
+    func testGetTeamDetails (){
+        let url = ApiUrls.teamDetails.rawValue + "93&APIkey=b7cec958d99cadc1a45d46998255a420e8ed1b99653755908b46ae0dd017b9d8"
+        let myExpectation = expectation(description: "waiting for response")
+        networkMgr.getTeamDetails(url: url) { details in
+            guard let details = details else {
+                XCTFail("result is nil")
+                return
+            }
+            XCTAssert(details.result!.count == 1)
+            XCTAssertNotNil(details.result?.count)
+            XCTAssertFalse(details.success != 1)
+            myExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 10)
+    }
+    
+    
+    func testBindTeamDetailsResult(){
+        teamDetailsViewModel.getTeamDetails(teamKey: 73)
+        teamDetailsViewModel.bindTeamDetailsResult = { [weak self] in
+          // XCTAssertTrue((self?.teamDetailsViewModel.detailsResult.count)! > 0)
+          //  XCTAssertNotNil((self?.teamDetailsViewModel.detailsResult.count)! )
         }
     }
+    
+    func testBindLeagesViewModel(){
+        leaguesViewModel.getLeaguesOverNetwork(url: ApiUrls.basketballLeague.rawValue)
+        
+        leaguesViewModel.bindFootballResult = { [weak self] in
+           // XCTAssertNotNil(self?.leaguesViewModel.myresult)
+           // XCTAssertGreaterThan((self?.leaguesViewModel.myresult.count)!, 0)
+            
+        }
+    }
+
 
 }
